@@ -151,10 +151,16 @@ class Vector:
 
     def __repr__(self):
         "Canonical string representation of the object"
-        return 'Canonical: {}'.format(tuple(self.vector))
+        return 'Vector({}, {})'.format(self.size, tuple(self.vector))
 
     def __str__(self):
-        return 'Pretty: {}'.format(tuple(self.vector))
+        string = "<"
+        for i in range(self.size):
+            if i == self.size-1:
+                string +='{}> '.format(self.get(i))
+            else:
+                string +='{}, '.format(self.get(i))
+        return string
 
     def __iadd__(self, other):
         """Overloading the  += operator to compute the substraction of the 2 vectors and
