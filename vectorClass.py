@@ -149,6 +149,13 @@ class Vector:
              v.set(i, -1 * self.get(i))
         return v
 
+    def __repr__(self):
+        "Canonical string representation of the object"
+        return 'Canonical: {}'.format(tuple(self.vector))
+
+    def __str__(self):
+        return 'Pretty: {}'.format(tuple(self.vector))
+
     def __iadd__(self, other):
         """Overloading the  += operator to compute the substraction of the 2 vectors and
         storing it in self (self+=other). If the vectors have different sizes, SizeMismatch
