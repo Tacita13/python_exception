@@ -551,13 +551,11 @@ print("After C -= A:", c)
 
 print("After C *= B:", c)
 
-"""
-c[0, 2]
-c[1, -10]
-c[2, 5]
-c[3, -11]
-c[4, 8]
-"""
+c[0] = 2
+c[1] = 10
+c[2] = 5
+c[3] = -11
+c[4] = 8
 
 print("Position c[3]:", c[3])
 print("Position c[4]:", c[4])
