@@ -565,5 +565,5 @@ c[2] = 5
 c[3] = -11
 c[4] = 8
 
-print("Position c[3]:", c[3] )
-print("Position c[4]:", c[4] )
+print("Position c[3] after \"c[3] = -11\":", c[3] )
+print("Position c[4] after \"c[4] = 8\":", c[4] )
