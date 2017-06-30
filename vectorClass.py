@@ -394,9 +394,17 @@ class Vector:
 
             for i in range(self.size):
 
-                self.set(i, self.get(i)*other)
+                self.set(i, self.get(i) * other )
 
             return self
+            
+        elif type(other) == Vector:
+          
+          for i in range(self.size):
+            
+            self.set(i, self.get(i) * other.get(i) )
+        
+          return self
 
         else:
 
@@ -482,12 +490,12 @@ class Vector:
 
         "Method that returns the average of the elements of the vector"
 
-        return self.sum()/self.getSize()
+        return self.sum() / self.getSize()
 
 
 a = Vector(5)
 
-print("Vector size:", a.getSize())
+print("Vector size:", a.getSize() )
 
 a.set(0,1)
 a.set(1,2)
@@ -497,15 +505,15 @@ a.set(4,5)
 
 print("Vector A:", a)
 
-print("Position 2 value:", a.get(2))
+print("Position 2 value:", a.get(2) )
 
-print("Minimum value:", a.min())
+print("Minimum value:", a.min() )
 
-print("Maximum value:", a.max())
+print("Maximum value:", a.max() )
 
-print("Sum of all values:", a.sum())
+print("Sum of all values:", a.sum() )
 
-print("Average:", a.average())
+print("Average:", a.average() )
 
 print("")
 
@@ -547,7 +555,7 @@ c -= a
 
 print("After C -= A:", c)
 
-"""c *= b"""
+c *= b
 
 print("After C *= B:", c)
 
@@ -557,5 +565,5 @@ c[2] = 5
 c[3] = -11
 c[4] = 8
 
-print("Position c[3]:", c[3])
-print("Position c[4]:", c[4])
+print("Position c[3]:", c[3] )
+print("Position c[4]:", c[4] )
