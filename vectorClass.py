@@ -389,26 +389,27 @@ class Vector:
         storing it in self (self-=other). If the vectors have different sizes, SizeMismatch
 
         exception is raised"""
+        try:
 
-        if type(other) == float:
+            if type(other) == float:
 
-            for i in range(self.size):
+                for i in range(self.size):
 
-                self.set(i, self.get(i) * other )
+                    self.set(i, self.get(i) * other )
 
-            return self
+                return self
+                
+            elif type(other) == Vector:
+              
+              for i in range(self.size):
+                
+                self.set(i, self.get(i) * other.get(i) )
             
-        elif type(other) == Vector:
-          
-          for i in range(self.size):
-            
-            self.set(i, self.get(i) * other.get(i) )
-        
-          return self
+              return self
 
-        else:
+        except SizeMismatch:
 
-            print("In-place multiplication must be between vector and a float")
+            print("Vectors have different sizes")
 
 
 
