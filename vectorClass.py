@@ -95,7 +95,7 @@ class Vector:
         """Overloading the  * operator to compute the dot-product of the 2 vectors
         (self*other). If the vectors have different sizes, SizeMismatch
         exception is raised"""
-        if type(other) == float:
+        if type(other) == float or type(other) == int:
             v = Vector(self.size)
             for i in range(self.size):
                 v.set(i, self.get(i)*other)
@@ -205,17 +205,20 @@ class Vector:
         """Overloading the  *= operator to compute the scalar multiplication of a vector and
         storing it in self (self-=other). If the vectors have different sizes, SizeMismatch
         exception is raised"""
-        try:
-            if type(other) == float:
+        if type(other) == float or type(other) == int:
                 for i in range(self.size):
                     self.set(i, self.get(i) * other )
                 return self
-            elif type(other) == Vector:
-              for i in range(self.size):
-                self.set(i, self.get(i) * other.get(i) )
-              return self
-        except SizeMismatch:
-            print("Vectors have different sizes")
+        else:
+            try:    
+                if type(other) != Vector:
+                    raise SizeMismatch
+                else:
+                  for i in range(self.size):
+                    self.set(i, self.get(i) * other.get(i) )
+                  return self
+            except SizeMismatch:
+                print("Vectors have different sizes")
 
     def __getitem__(self, i):
         "Method that calls self.get(i) using the [] operator"
